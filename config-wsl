@@ -1,0 +1,15 @@
+Open cmd as admin 
+
+cd to users windown "example 'C:Users\kazut' "
+
+- create file: ".wslconfig"
+
+in file ".wslconfig"
+_________________________________
+				                        |
+				                        |
+[wsl2]				                  |
+memory=10GB			                |
+processors=4			              |
+				                        |
+---------------------------------
