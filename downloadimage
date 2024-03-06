@@ -1,0 +1,30 @@
+function downloadAllImages() {
+    // Get all images on the page
+    const images = document.getElementsByTagName('img');
+    
+    // Iterate over each image
+    for (let i = 0; i < images.length; i++) {
+        const img = images[i];
+        
+        // Create a new link element
+        const link = document.createElement('a');
+        
+        // Set the href of the link to the image's source
+        link.href = img.src;
+        
+        // Set the download attribute of the link to the image's filename
+        link.download = img.src.split('/').pop();
+        
+        // Append the link to the body
+        document.body.appendChild(link);
+        
+        // Programmatically click the link to download the image
+        link.click();
+        
+        // Remove the link from the body
+        document.body.removeChild(link);
+    }
+}
+
+// Call the function to download all images
+downloadAllImages();
