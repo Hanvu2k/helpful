@@ -1,30 +1,18 @@
-function downloadAllImages() {
-    // Get all images on the page
-    const images = document.getElementsByTagName('img');
-    
-    // Iterate over each image
-    for (let i = 0; i < images.length; i++) {
-        const img = images[i];
-        
-        // Create a new link element
-        const link = document.createElement('a');
-        
-        // Set the href of the link to the image's source
-        link.href = img.src;
-        
-        // Set the download attribute of the link to the image's filename
-        link.download = img.src.split('/').pop();
-        
-        // Append the link to the body
-        document.body.appendChild(link);
-        
-        // Programmatically click the link to download the image
-        link.click();
-        
-        // Remove the link from the body
-        document.body.removeChild(link);
-    }
-}
+Array.from(document.querySelectorAll(".wdt-product-image > img")).map((img, index) => {
+    // Tạo một liên kết tạm thời
+    const tempLink = document.createElement('a');
+    tempLink.href = img.src;
+    tempLink.download = `image_${index}.${img.src.split('.').pop()}`; // Đặt tên file tải xuống
 
-// Call the function to download all images
-downloadAllImages();
+    // Thêm liên kết vào DOM để có thể tải xuống
+    document.body.appendChild(tempLink);
+
+    // Kích hoạt tải xuống
+    tempLink.click();
+
+    // Xóa liên kết tạm thời khỏi DOM
+    document.body.removeChild(tempLink);
+  })
+
+
+// .wdt-product-image > img : class của thẻ chứa img
