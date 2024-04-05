@@ -2,7 +2,7 @@ Array.from(document.querySelectorAll(".wdt-product-image > img")).map((img, inde
     // Tạo một liên kết tạm thời
     const tempLink = document.createElement('a');
     tempLink.href = img.src;
-    tempLink.download = `image_${index}.${img.src.split('.').pop()}`; // Đặt tên file tải xuống
+    tempLink.download = `image_${index}`; // Đặt tên file tải xuống
 
     // Thêm liên kết vào DOM để có thể tải xuống
     document.body.appendChild(tempLink);
